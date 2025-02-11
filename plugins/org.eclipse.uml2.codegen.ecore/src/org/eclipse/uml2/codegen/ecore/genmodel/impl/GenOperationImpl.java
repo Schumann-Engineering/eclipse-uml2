@@ -410,7 +410,7 @@ public class GenOperationImpl
 			org.eclipse.emf.codegen.ecore.genmodel.GenOperation genOperation) {
 		// only redefined operations can override
 		if (!isRedefinition()) {
-			return false;
+			return super.isOverrideOf(genClass, genOperation);
 		}
 		
 		// search in redefined operations
@@ -419,7 +419,7 @@ public class GenOperationImpl
 			return true;
 		
 		// nothing to override found
-		return false;
+		return super.isOverrideOf(genClass, genOperation);
 	}
 
 	protected static final Pattern NEWLINE_PATTERN = Pattern
